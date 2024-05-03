@@ -1,0 +1,57 @@
+@import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body{
+    font-family: "Montserrat", sans-serif;
+}
+.form-container{
+    /* display: flex; */
+    width: 60%;
+}
+.trueFalseGroup div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.trueFalseGroup p{
+   margin-block: auto;
+   margin-right: 100px;
+}
+.dateInputContainerRow{
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(12, 1fr);
+}
+.dateInputContainerRow div{
+    grid-column: span 3;
+}
+.dateInputContainerRow div:first-child{
+    grid-column: 1/6;
+}
+.dateInputContainerRow div:first-child input{
+    text-align: center;
+}
+.dateInputContainerRow .ant-input-number{
+    width: 100% !important;
+}
+.duoNumberInputContainer{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.duoNumberInputContainer p {
+    margin-block: auto;
+}
+.duoNumberInputContainer div{
+    
+}
+
+.errorBox{
+    border: 2px solid rgb(255, 83, 83);
+    background-color: rgba(255, 0, 0, 0.2);
+    padding: 8px;
+    border-radius: 4px;
+    width: 30%;
+    font-weight: 500;
+}
