@@ -6,7 +6,7 @@ export default function TrueFalseGroup() {
 
   return (
     <>
-        <div className='trueFalseGroup'>
+        <div className='trueFalseGroup' >
             {radioQuestions.map(x=>(
                 <TrueFalseComponent label={radioQuestions[radioQuestions.indexOf(x)]} value = {radioProperties[radioProperties.indexOf(x)]}/>
             ))}

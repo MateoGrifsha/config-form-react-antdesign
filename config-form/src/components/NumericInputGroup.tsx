@@ -4,7 +4,7 @@ import NumericInputComponent from './NumericInputComponent'
 export default function NumericInputGroup() {
   return (
     <>
-        <div className='dateInputContainer'>
+        <div className='dateInputContainer' >
           <div className='dateInputContainerRow'>
               <NumericInputComponent label ='defaultStartDateUtcDiff'value='defaultStartDateUtcDiff' negative = {false}/>    
               <NumericInputComponent label ='minStartDateUtcDiff'value='minStartDateUtcDiff' negative = {true}/>    

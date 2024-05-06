@@ -1,10 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
 import { Input, Tag, Tooltip } from 'antd';
+import { DataContext } from '../App';
 
-export default function EmailConfigTag() {
-    const [tags, setTags] = useState<string[]>([]);
+interface Props{
+  value:string
+}
+export default function EmailConfigTag({value}:Props) {
+    const data:any = useContext(DataContext)
+    const [tags, setTags] = useState<string[]>(data[0]['emailConfigurations'][0][value]);
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [editInputIndex, setEditInputIndex] = useState(-1);
@@ -80,7 +85,7 @@ export default function EmailConfigTag() {
                     <Tag
                         className="edit-tag"
                         key={tag}
-                        closable={index !== 0}
+                        closable={index !== -1}
                         onClose={() => handleClose(tag)}
                     >
                         <span

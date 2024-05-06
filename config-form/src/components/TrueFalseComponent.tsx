@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Radio } from 'antd'
 import { DataContext } from '../App';
+import {ButtonContext} from '../components/FormComponent'
 interface Props{
     label:string,
     value:string
@@ -8,7 +9,9 @@ interface Props{
 
 export default function TrueFalseComponent({label,value}:Props) {
   const data:any = useContext(DataContext)
-  const [checked,setChecked] = useState(data[0][value])
+  const saveButton:any = useContext(ButtonContext)
+  const dataTypeCheck = data[0]['emailConfigurations'][0][value]
+  const [checked,setChecked] = useState(dataTypeCheck!=undefined?dataTypeCheck:data[0][value])
   const handleClick = (trueOrFalse:string) => {
     if(trueOrFalse === 'true'){
       setChecked(true)
@@ -17,6 +20,10 @@ export default function TrueFalseComponent({label,value}:Props) {
       setChecked(false)
     }
   }
+  if(saveButton){
+    data[0][value]=checked
+  }
+  
   return (
     <>
         <div>

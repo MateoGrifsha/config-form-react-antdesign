@@ -14,8 +14,8 @@ export default function EmailConfiguration() {
                 <TrueFalseComponent label={radioQuestions[radioQuestions.indexOf(x)]} value={radioProperties[radioProperties.indexOf(x)]}/>
             ))}
             
-            <p>Custom CC:</p><EmailConfigTag />
-            <p>Custom BCC:</p><EmailConfigTag />
+            <p>Custom CC:</p><EmailConfigTag value={'customCc'}/>
+            <p>Custom BCC:</p><EmailConfigTag value={'customBcc'}/>
     </>
   )
 }

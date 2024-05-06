@@ -11,7 +11,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.`;
 export default function CollapseEmailComponent() {
   return (
-    <>
+    <div >
         <Collapse
             bordered={false}
             expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
@@ -21,6 +21,6 @@ export default function CollapseEmailComponent() {
                 <EmailConfiguration />
             </Panel>
         </Collapse>
-    </>
+    </div>
   )
 }

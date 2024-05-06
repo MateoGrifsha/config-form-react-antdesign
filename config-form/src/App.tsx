@@ -1,4 +1,4 @@
-import React, {createContext ,useContext} from 'react'
+import React, {createContext } from 'react'
 import FormComponent from './components/FormComponent';
 
 interface Types{
@@ -101,22 +101,22 @@ const data:Array<DataObj> = [{
 }
 ],
   "distributionChannelTypesAllowed": [
-    {
-      "text": "CSH7",
-      "name": "CSH7",
-      "value": "CSH7"
-    },
 {
-  "text": "SHITJE STAFI (STAFF)",
-  "name": "SHITJE STAFI (STAFF)",
-  "value": "SHITJE STAFI (STAFF)"
-}
+  "text": "CSH7",
+  "name": "CSH7",
+  "value": "CSH7"
+},
+{
+  "text": "CSH8",
+  "name": "CSH8",
+  "value": "CSH8"
+},
 ],
 "waitingPeriodTypeAllowed": null,
 "riskAddressTypesAllowed": null,
 "emailConfigurations": [
   {
-    "shouldSendEmail": false,
+    "shouldSendEmail": true,
     "sendToAgent": true,
     "sendToCustomer": null,
     "customCc": ['aaaa'],
