@@ -8,7 +8,7 @@ export default function TagInputGroup() {
   const waitingPeriodTypeAllowed:string[] = ['CSH8', 'CSH9', 'CSH10', 'CSH11']
   const riskAddressTypesAllowed:string[] = ['CSH12', 'CSH13', 'CSH14', 'CSH15']
   return (
-    <div  style={{border: 'thin solid red'}}>
+    <div>
         <TagInputComponent inputs={currencies} label='Currency: ' value='currencyTypesAllowed'/><br />
         <TagInputComponent inputs={paymentType} label='Payment Type: ' value='paymentTypesAllowed'/><br />
         <TagInputComponent inputs={distributionChannels} label='Distribution Channels: ' value='distributionChannelTypesAllowed'/><br />

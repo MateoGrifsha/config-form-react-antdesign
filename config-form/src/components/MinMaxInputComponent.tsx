@@ -8,7 +8,7 @@ interface Props{
   values:string[]
 }
 export default function MinMaxInputComponent({label, values}:Props) {
-  const saveButton:any = useContext(ButtonContext)
+  const saveButton:boolean = useContext(ButtonContext)
   const minKey = values[0]
   const maxKey = values[1]
   const data:any = useContext(DataContext)
@@ -16,7 +16,7 @@ export default function MinMaxInputComponent({label, values}:Props) {
   const [maxValue, setMaxValue] = useState(data[0][maxKey])
 
   //controlled input bcs it updates 'min' attribute on the maximum input field
-  const handleChange = (e:any, minmax:string)=>{
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>, minmax:string)=>{
     if(minmax=='min'){
       setMinValue(e)
     }
@@ -34,8 +34,8 @@ export default function MinMaxInputComponent({label, values}:Props) {
     <div className='duoNumberInputContainer'>
       <p>{label}</p>
       <div>
-        <InputNumber min={0} max={10} value={minValue} onChange={(e:any) => handleChange(e, 'min')}/>
-        <InputNumber min={minValue} max={10} value={maxValue} onChange={(e:any) => handleChange(e, 'max')}/>
+        <InputNumber min={0} max={10} value={minValue} onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleChange(e, 'min')}/>
+        <InputNumber min={minValue} max={10} value={maxValue} onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleChange(e, 'max')}/>
       </div>
       {minValue > maxValue && <div className='errorBox'>Minimum cannot be bigger than maximum.</div>}
     </div>

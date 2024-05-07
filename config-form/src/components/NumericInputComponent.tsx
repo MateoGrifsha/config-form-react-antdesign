@@ -9,7 +9,7 @@ interface Props{
 }
 
 export default function NumericInputComponent({label, negative, value}:Props) {
-  const saveButton:any = useContext(ButtonContext)
+  const saveButton:boolean = useContext(ButtonContext)
   const data:any = useContext(DataContext)
   const [dataValue, setDataValue] = useState<number>(data[0][value])
   const inputRef:any = useRef()

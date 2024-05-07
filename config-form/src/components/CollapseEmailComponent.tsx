@@ -18,7 +18,7 @@ export default function CollapseEmailComponent() {
             className="site-collapse-custom-collapse"
         >
             <Panel header="Email Configurations" key="1" className="site-collapse-custom-panel">
-                <EmailConfiguration />
+                <EmailConfiguration  />
             </Panel>
         </Collapse>
     </div>

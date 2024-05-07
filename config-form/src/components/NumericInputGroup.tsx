@@ -6,14 +6,14 @@ export default function NumericInputGroup() {
     <>
         <div className='dateInputContainer' >
           <div className='dateInputContainerRow'>
-              <NumericInputComponent label ='defaultStartDateUtcDiff'value='defaultStartDateUtcDiff' negative = {false}/>    
-              <NumericInputComponent label ='minStartDateUtcDiff'value='minStartDateUtcDiff' negative = {true}/>    
-              <NumericInputComponent label ='maxStartDateUtcDiff'value='maxStartDateUtcDiff' negative = {false}/>  
+              <NumericInputComponent label ='Default start date'value='defaultStartDateUtcDiff' negative = {false}/>    
+              <NumericInputComponent label ='Minimum start date'value='minStartDateUtcDiff' negative = {true}/>    
+              <NumericInputComponent label ='Maximum start date'value='maxStartDateUtcDiff' negative = {false}/>  
           </div>
           <div className='dateInputContainerRow'>
-              <NumericInputComponent label ='defaultIssueDateUtcDiff'value='defaultIssueDateUtcDiff' negative = {false}/>    
-              <NumericInputComponent label ='minIssueDateUtcDiff'value='minIssueDateUtcDiff' negative = {true}/>    
-              <NumericInputComponent label ='maxIssueDateUtcDiff'value='maxIssueDateUtcDiff' negative = {false}/>    
+              <NumericInputComponent label ='Default issue date'value='defaultIssueDateUtcDiff' negative = {false}/>    
+              <NumericInputComponent label ='Minimum issue date'value='minIssueDateUtcDiff' negative = {true}/>    
+              <NumericInputComponent label ='Maximum issue date'value='maxIssueDateUtcDiff' negative = {false}/>    
           </div>   
         </div>
     </>

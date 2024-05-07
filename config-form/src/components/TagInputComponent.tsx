@@ -11,7 +11,7 @@ interface Props{
 }
 export default function TagInputComponent({inputs, label, value}:Props) {
     const data:any = useContext(DataContext)
-    const saveButton:any = useContext(ButtonContext)
+    const saveButton:boolean = useContext(ButtonContext)
     const initialTags:string[] =[]
     const valueKey = data[0][value]
 

@@ -6,28 +6,22 @@ import MinMaxInputGroup from './MinMaxInputGroup';
 import TagInputGroup from './TagInputGroup';
 import CollapseEmailComponent from './CollapseEmailComponent';
 import { DataContext } from '../App';
+import { DataObj } from '../App';
+
 
 export const ButtonContext = createContext<boolean>(false);
 export default function FormComponent() {
   const [save, setSave] = useState<boolean>(false)
-  const data:any = useContext(DataContext)
+  const data:DataObj[] = useContext(DataContext)!
   const handleButtonClick = () =>{
     setSave(true)
     setTimeout(()=>{setSave(false)},1000); 
   }
-
   return (
   <ButtonContext.Provider value={save}>
       <Form
         className='form-container'
       >
-        <Form.Item>
-          <Button type="primary" htmlType="submit" onClick={handleButtonClick} loading={save}>
-            Submit
-          </Button>
-          <button onClick={()=>{console.log(data)}}>data</button>
-        </Form.Item>
-        <hr />
         <Form.Item>
             <TrueFalseGroup/>
         </Form.Item>
@@ -46,6 +40,12 @@ export default function FormComponent() {
         <hr />
         <Form.Item>
             <CollapseEmailComponent />
+        </Form.Item>
+        
+        <Form.Item>
+          <Button type="primary" htmlType="submit" onClick={handleButtonClick} loading={save}>
+            Submit
+          </Button>
         </Form.Item>
       </Form>
     </ButtonContext.Provider>

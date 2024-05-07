@@ -106,11 +106,7 @@ const data:Array<DataObj> = [{
   "name": "CSH7",
   "value": "CSH7"
 },
-{
-  "text": "CSH8",
-  "name": "CSH8",
-  "value": "CSH8"
-},
+
 ],
 "waitingPeriodTypeAllowed": null,
 "riskAddressTypesAllowed": null,

@@ -3,12 +3,15 @@ import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
 import { Input, Tag, Tooltip } from 'antd';
 import { DataContext } from '../App';
-
+import {ButtonContext} from '../components/FormComponent'
+import { DataObj } from '../App';
 interface Props{
   value:string
 }
 export default function EmailConfigTag({value}:Props) {
     const data:any = useContext(DataContext)
+
+    const saveButton:boolean = useContext(ButtonContext)
     const [tags, setTags] = useState<string[]>(data[0]['emailConfigurations'][0][value]);
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
@@ -16,6 +19,10 @@ export default function EmailConfigTag({value}:Props) {
     const [editInputValue, setEditInputValue] = useState('');
     const inputRef = useRef<InputRef>(null);
     const editInputRef = useRef<InputRef>(null);
+
+    if(saveButton){
+      data[0]['emailConfigurations'][0][value] = tags
+    }
 
     useEffect(() => {
         if (inputVisible) {
@@ -29,7 +36,6 @@ export default function EmailConfigTag({value}:Props) {
     
       const handleClose = (removedTag: string) => {
         const newTags = tags.filter(tag => tag !== removedTag);
-        console.log(newTags);
         setTags(newTags);
       };
     
