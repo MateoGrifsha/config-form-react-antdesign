@@ -1,9 +1,7 @@
 import React from 'react'
 import TrueFalseComponent from './TrueFalseComponent'
+import { radioProperties, radioQuestions } from './constants/Constants'
 export default function TrueFalseGroup() {
-    const radioProperties = ['canSell', "canCancel", "canReturn", "canDuplicate", "canAdjustPremium", "hasInstallments","hasRenewals"]
-    const radioQuestions = ['Can be sold', "Can be canceled", "Can be returned", "Can be duplicated", "Can be adjusted to Premium", "It has installments","It has renewals"]
-
   return (
     <>
         <div className='trueFalseGroup' >

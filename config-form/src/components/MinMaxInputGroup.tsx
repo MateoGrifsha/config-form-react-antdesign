@@ -1,14 +1,7 @@
 import React from 'react'
 import MinMaxInputComponent from './MinMaxInputComponent'
-
+import { minMaxInputValues as inputValues } from './constants/Constants'
 export default function MinMaxInputGroup() {
-  const inputValues = [
-    ['minBeneficiaryCount', 'maxBeneficiaryCount'], 
-    ['minPolicyHolderCount', 'maxPolicyHolderCount'], 
-    ['minPolicyUserCount', 'maxPolicyUserCount'], 
-    ['minInsurerCount', 'maxInsurerCount'], 
-    ['minInvoiceRecipientCount', 'maxInvoiceRecipientCount']
-  ]
   return (
     <div>
         <MinMaxInputComponent label="Beneficiary: " values={inputValues[0]}/>

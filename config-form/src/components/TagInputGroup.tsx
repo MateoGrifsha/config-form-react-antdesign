@@ -1,12 +1,8 @@
 import React from 'react'
 import TagInputComponent from './TagInputComponent'
-
+import { currencies, paymentType, distributionChannels, waitingPeriodTypeAllowed, riskAddressTypesAllowed } from './constants/Constants'
 export default function TagInputGroup() {
-  const currencies:string[] = ['ALL','EUR', 'USD',]
-  const paymentType:string[] = ['CSH', 'CSH1', 'CSH2', 'CSH3']
-  const distributionChannels:string[] = ['CSH4', 'CSH5', 'CSH6', 'CSH7']
-  const waitingPeriodTypeAllowed:string[] = ['CSH8', 'CSH9', 'CSH10', 'CSH11']
-  const riskAddressTypesAllowed:string[] = ['CSH12', 'CSH13', 'CSH14', 'CSH15']
+
   return (
     <div>
         <TagInputComponent inputs={currencies} label='Currency: ' value='currencyTypesAllowed'/><br />
