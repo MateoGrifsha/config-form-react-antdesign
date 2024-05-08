@@ -1,7 +1,7 @@
 import React, {createContext } from 'react'
 import FormComponent from './components/FormComponent';
 
-interface Types{
+export interface Types{
   text:string,
   name:string,
   value:string
@@ -43,6 +43,7 @@ export interface DataObj{
   waitingPeriodTypeAllowed:Array<Types> | null,
   riskAddressTypesAllowed:Array<Types> | null,
   emailConfigurations:Array<ProductEmailConfiguration> | null
+  [key: string]: string | boolean | number | null | Array<Types> | Array<ProductEmailConfiguration> | null; //allows keys to come as those datatypes
 }
 const data:Array<DataObj> = [{
   "canSell": false,

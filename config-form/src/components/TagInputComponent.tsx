@@ -1,8 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Tag } from 'antd';
 import { DataContext } from '../App';
 import {ButtonContext} from '../components/FormComponent'
+import { DataObj, Types } from '../App';
 const { CheckableTag } = Tag;
+
 
 interface Props{
     inputs: string[],
@@ -14,7 +16,6 @@ export default function TagInputComponent({inputs, label, value}:Props) {
     const saveButton:boolean = useContext(ButtonContext)
     const initialTags:string[] =[]
     const valueKey = data[0][value]
-
     if(valueKey != null){
         for(let i = 0;i<valueKey.length;i++){
             initialTags.push(data[0][value][i]['text'])
@@ -31,9 +32,13 @@ export default function TagInputComponent({inputs, label, value}:Props) {
         'name': tag,
         'value': tag
       }));
-      data[0][value] = arrayOfObjects
+      
+    useEffect(()=>{
+        if(saveButton){
+            data[0][value] = arrayOfObjects
+        }
+    },[saveButton])
     
-    // console.table(arrayOfObjects)
   return (
     <div>
         {label}

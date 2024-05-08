@@ -15,6 +15,7 @@ export default function FormComponent() {
   const data:DataObj[] = useContext(DataContext)!
   const handleButtonClick = () =>{
     setSave(true)
+    console.log(data)
     setTimeout(()=>{setSave(false)},1000); 
   }
   return (

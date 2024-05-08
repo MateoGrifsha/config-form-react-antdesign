@@ -25,10 +25,12 @@ export default function MinMaxInputComponent({label, values}:Props) {
     }
   }
 
-  if(saveButton){
-    data[0][minKey] = minValue
-    data[0][maxKey] = maxValue
-  }
+  useEffect(()=>{
+    if(saveButton){
+      data[0][minKey] = minValue
+      data[0][maxKey] = maxValue
+    }
+  },[saveButton])
 
   return (
     <div className='duoNumberInputContainer'>

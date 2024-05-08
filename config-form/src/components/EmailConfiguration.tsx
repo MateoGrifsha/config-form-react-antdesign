@@ -10,8 +10,8 @@ export default function EmailConfiguration() {
    
   return (
     <>
-            {radioQuestions.map(x=>(
-                <TrueFalseComponent label={radioQuestions[radioQuestions.indexOf(x)]} value={radioProperties[radioProperties.indexOf(x)]} key={radioQuestions.indexOf(x)}/>
+            {radioProperties.map(x=>(
+                <TrueFalseComponent label={radioQuestions[radioProperties.indexOf(x)]} value = {radioProperties[radioProperties.indexOf(x)]} key={radioProperties.indexOf(x)}/>
             ))}
             
             <p>Custom CC:</p><EmailConfigTag value={'customCc'}/>

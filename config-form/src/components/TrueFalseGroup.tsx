@@ -7,8 +7,8 @@ export default function TrueFalseGroup() {
   return (
     <>
         <div className='trueFalseGroup' >
-            {radioQuestions.map(x=>(
-                <TrueFalseComponent key={radioQuestions.indexOf(x)} label={radioQuestions[radioQuestions.indexOf(x)]} value = {radioProperties[radioProperties.indexOf(x)]}/>
+            {radioProperties.map(x=>(
+                <TrueFalseComponent key={radioProperties.indexOf(x)} label={radioQuestions[radioProperties.indexOf(x)]} value = {radioProperties[radioProperties.indexOf(x)]}/>
             ))}
         </div>
     </>

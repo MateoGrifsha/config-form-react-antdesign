@@ -20,9 +20,11 @@ export default function EmailConfigTag({value}:Props) {
     const inputRef = useRef<InputRef>(null);
     const editInputRef = useRef<InputRef>(null);
 
-    if(saveButton){
-      data[0]['emailConfigurations'][0][value] = tags
-    }
+    useEffect(()=>{
+      if(saveButton){
+        data[0]['emailConfigurations'][0][value] = tags
+      }
+    },[saveButton])
 
     useEffect(() => {
         if (inputVisible) {

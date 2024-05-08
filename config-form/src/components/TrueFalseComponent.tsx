@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Radio } from 'antd'
 import { DataContext } from '../App';
 import {ButtonContext} from '../components/FormComponent'
@@ -12,8 +12,8 @@ interface Props{
 export default function TrueFalseComponent({label,value}:Props) {
   const data:any = useContext(DataContext)
   const saveButton:boolean = useContext(ButtonContext)
-  const dataTypeCheck = data[0]?.['emailConfigurations'][0]?.[value]
-  const [checked,setChecked] = useState(dataTypeCheck!=undefined?dataTypeCheck:data[0]?.[value])
+  const dataTypeCheck = data[0]['emailConfigurations'][0][value]
+  const [checked,setChecked] = useState(dataTypeCheck!=undefined?dataTypeCheck:data[0][value])
   const handleClick = (trueOrFalse:string) => {
     if(trueOrFalse === 'true'){
       setChecked(true)
@@ -22,12 +22,14 @@ export default function TrueFalseComponent({label,value}:Props) {
       setChecked(false)
     }
   }
-  if(saveButton && typeof dataTypeCheck === 'undefined'){
-    data[0][value]=checked
-  }
-  if(saveButton && typeof dataTypeCheck !== 'undefined'){
-    data[0]['emailConfigurations'][0][value] = checked
-  }
+  useEffect(()=>{
+    if(saveButton && typeof dataTypeCheck === 'undefined'){
+      data[0][value]=checked
+    }
+    if(saveButton && typeof dataTypeCheck !== 'undefined'){
+      data[0]['emailConfigurations'][0][value] = checked
+    }
+  },[saveButton])
 
   return (
     <>
