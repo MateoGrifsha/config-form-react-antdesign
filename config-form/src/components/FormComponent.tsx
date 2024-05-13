@@ -1,4 +1,4 @@
-import React, {createContext,useContext, useState} from 'react'
+import React, {createContext,useContext, useEffect, useState} from 'react'
 import { Form,Button } from 'antd';
 import TrueFalseGroup from './TrueFalseGroup';
 import NumericInputGroup from './NumericInputGroup';
@@ -6,18 +6,20 @@ import MinMaxInputGroup from './MinMaxInputGroup';
 import TagInputGroup from './TagInputGroup';
 import CollapseEmailComponent from './CollapseEmailComponent';
 import { DataContext } from '../App';
-import { DataObj } from '../App';
 
 
 export const ButtonContext = createContext<boolean>(false);
 export default function FormComponent() {
   const [save, setSave] = useState<boolean>(false)
-  const data:DataObj[] = useContext(DataContext)!
+  const {data, setData} = useContext(DataContext)!
   const handleButtonClick = () =>{
     setSave(true)
-    console.log(data)
     setTimeout(()=>{setSave(false)},1000); 
   }
+  useEffect(()=>{
+    console.log(data)
+  },[data])
+  
   return (
   <ButtonContext.Provider value={save}>
       <Form

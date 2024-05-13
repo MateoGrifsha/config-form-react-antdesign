@@ -1,8 +1,8 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import { InputNumber } from 'antd';
 import { DataContext } from '../App';
-import {ButtonContext} from '../components/FormComponent'
-import { DataObj } from '../App';
+import useKeyChange from './hooks/useKeyChange';
+
 
 interface Props{
     label:string,
@@ -11,23 +11,12 @@ interface Props{
 }
 
 export default function NumericInputComponent({label, negative, value}:Props) {
-  const saveButton:boolean = useContext(ButtonContext)
-  const data: DataObj[] = useContext(DataContext)!;
-  const [dataValue, setDataValue] = useState<number>((data[0] as any)?.[value]);
-  const inputRef = useRef<HTMLInputElement>(null)
+  const {data} = useContext(DataContext)
+  const dataValue = data[value]
+  const inputRef = useRef<HTMLInputElement | any>(dataValue)
 
-useEffect (()=>{
-  if(saveButton){
-    setDataValue(parseInt(inputRef.current!.value))
-  }
-}, [saveButton])
-
-useEffect(() => {
-  if (data) {
-      data[0][value] = dataValue || 0;
-  }
-}, [data, dataValue, value]);
-
+  useKeyChange(value, parseInt(inputRef.current!.value))
+  
   return (
     <>
         <div className='numericInputContainer'>

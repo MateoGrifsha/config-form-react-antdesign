@@ -1,19 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { InputNumber } from 'antd';
 import { DataContext } from '../App';
-import {ButtonContext} from '../components/FormComponent'
+import useKeyChange from './hooks/useKeyChange';
 
 interface Props{
   label:string,
   values:string[]
 }
 export default function MinMaxInputComponent({label, values}:Props) {
-  const saveButton:boolean = useContext(ButtonContext)
   const minKey = values[0]
   const maxKey = values[1]
-  const data:any = useContext(DataContext)
-  const [minValue, setMinValue] = useState(data[0][minKey])
-  const [maxValue, setMaxValue] = useState(data[0][maxKey])
+  const {data} = useContext(DataContext)
+  const [minValue, setMinValue] = useState(data[minKey])
+  const [maxValue, setMaxValue] = useState(data[maxKey])
 
   //controlled input bcs it updates 'min' attribute on the maximum input field
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>, minmax:string)=>{
@@ -24,13 +23,8 @@ export default function MinMaxInputComponent({label, values}:Props) {
       setMaxValue(e)
     }
   }
-
-  useEffect(()=>{
-    if(saveButton){
-      data[0][minKey] = minValue
-      data[0][maxKey] = maxValue
-    }
-  },[saveButton])
+  useKeyChange(minKey, minValue)
+  useKeyChange(maxKey, maxValue)
 
   return (
     <div className='duoNumberInputContainer'>

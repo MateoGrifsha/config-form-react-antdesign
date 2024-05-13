@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { Radio } from 'antd'
 import { DataContext } from '../App';
-import {ButtonContext} from '../components/FormComponent'
-import { DataObj } from '../App';
+import useKeyChange from './hooks/useKeyChange';
 
 interface Props{
     label:string,
@@ -10,10 +9,10 @@ interface Props{
 }
 
 export default function TrueFalseComponent({label,value}:Props) {
-  const data:any = useContext(DataContext)
-  const saveButton:boolean = useContext(ButtonContext)
-  const dataTypeCheck = data[0]['emailConfigurations'][0][value]
-  const [checked,setChecked] = useState(dataTypeCheck!=undefined?dataTypeCheck:data[0][value])
+  const {data} = useContext(DataContext)
+  const dataTypeCheck = data['emailConfigurations'][0][value]
+  const [checked,setChecked] = useState(dataTypeCheck!=undefined?dataTypeCheck:data[value])
+
   const handleClick = (trueOrFalse:string) => {
     if(trueOrFalse === 'true'){
       setChecked(true)
@@ -22,14 +21,9 @@ export default function TrueFalseComponent({label,value}:Props) {
       setChecked(false)
     }
   }
-  useEffect(()=>{
-    if(saveButton && typeof dataTypeCheck === 'undefined'){
-      data[0][value]=checked
-    }
-    if(saveButton && typeof dataTypeCheck !== 'undefined'){
-      data[0]['emailConfigurations'][0][value] = checked
-    }
-  },[saveButton])
+  
+useKeyChange(value, checked, dataTypeCheck)
+
 
   return (
     <>

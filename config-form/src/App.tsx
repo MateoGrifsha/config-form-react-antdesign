@@ -1,4 +1,4 @@
-import React, {createContext } from 'react'
+import React, {createContext, useState } from 'react'
 import FormComponent from './components/FormComponent';
 
 export interface Types{
@@ -45,7 +45,7 @@ export interface DataObj{
   emailConfigurations:Array<ProductEmailConfiguration> | null
   [key: string]: string | boolean | number | null | Array<Types> | Array<ProductEmailConfiguration> | null; //allows keys to come as those datatypes
 }
-const data:Array<DataObj> = [{
+const dataArray:Array<DataObj> = [{
   "canSell": false,
   "canCancel": null,
   "canReturn": true,
@@ -121,13 +121,15 @@ const data:Array<DataObj> = [{
   }
 ],
 }]
-export const DataContext = createContext<Array<DataObj> | undefined | null>(data);
+export const DataContext = createContext <DataObj | undefined | null | any>(null);
   function App() {
+    const [data, setData] = useState<DataObj>(dataArray[0])
+  
 
   return (
     
     <div>
-      <DataContext.Provider value={data}>
+      <DataContext.Provider value={{data, setData}}>
         <FormComponent />
       </DataContext.Provider>
     </div>

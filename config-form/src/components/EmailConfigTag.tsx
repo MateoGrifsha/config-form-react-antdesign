@@ -4,15 +4,16 @@ import type { InputRef } from 'antd';
 import { Input, Tag, Tooltip } from 'antd';
 import { DataContext } from '../App';
 import {ButtonContext} from '../components/FormComponent'
-import { DataObj } from '../App';
+import useKeyChange from './hooks/useKeyChange';
+
 interface Props{
   value:string
 }
 export default function EmailConfigTag({value}:Props) {
-    const data:any = useContext(DataContext)
+    const {data} = useContext(DataContext)
 
     const saveButton:boolean = useContext(ButtonContext)
-    const [tags, setTags] = useState<string[]>(data[0]['emailConfigurations'][0][value]);
+    const [tags, setTags] = useState<string[]>(data['emailConfigurations'][0][value]);
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [editInputIndex, setEditInputIndex] = useState(-1);
@@ -22,7 +23,7 @@ export default function EmailConfigTag({value}:Props) {
 
     useEffect(()=>{
       if(saveButton){
-        data[0]['emailConfigurations'][0][value] = tags
+        data['emailConfigurations'][0][value] = tags
       }
     },[saveButton])
 
@@ -69,6 +70,7 @@ export default function EmailConfigTag({value}:Props) {
         setInputValue('');
       };
     
+      useKeyChange(value, tags, 'emailConfigurations')
   return (
     <>
         {tags.map((tag, index) => {
