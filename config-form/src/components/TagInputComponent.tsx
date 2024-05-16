@@ -41,9 +41,10 @@ export default function TagInputComponent({inputs, label, value}:Props) {
 
     
   return (
-    <div>
-        {label}
-        {inputs.map((tag:string)=>(
+    <div className='tag-row'>
+        <p>{label}</p>
+        <div>
+            {inputs.map((tag:string)=>(
             <CheckableTag
                 key={tag}
                 checked={selectedTags.indexOf(tag) > -1}
@@ -52,6 +53,7 @@ export default function TagInputComponent({inputs, label, value}:Props) {
                 {tag}
             </CheckableTag>
         ))}
+        </div>
     </div>
   )
 }

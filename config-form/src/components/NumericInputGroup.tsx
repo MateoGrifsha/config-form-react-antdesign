@@ -2,12 +2,15 @@ import React from 'react'
 import NumericInputComponent from './NumericInputComponent'
 
 export default function NumericInputGroup() {
+  const todaysDate = new Date().toDateString()
+
   return (
     <>
-        <h2 className='section-label'>Group 2: </h2>
+        <h2 className='section-label'>Starting & Issuing Dates: </h2>
+        <span className='todays-date'>{todaysDate}</span>
         <div className='dateInputContainer' >
           <div className='subgroup'>
-            <h3 className="subgroup-label">Subgroup 2.1:</h3>
+            <h3 className="subgroup-label">Starting dates:</h3>
             <div className='dateInputContainerRow'>
                 <NumericInputComponent label ='Default start date'value='defaultStartDateUtcDiff' negative = {false}/>    
                 <NumericInputComponent label ='Minimum start date'value='minStartDateUtcDiff' negative = {true}/>    
@@ -15,7 +18,7 @@ export default function NumericInputGroup() {
             </div>
           </div>
          <div className='subgroup'>
-          <h3 className="subgroup-label">Subgroup 2.2:</h3>
+          <h3 className="subgroup-label">Issuing dates:</h3>
             <div className='dateInputContainerRow'>
                 <NumericInputComponent label ='Default issue date'value='defaultIssueDateUtcDiff' negative = {false}/>    
                 <NumericInputComponent label ='Minimum issue date'value='minIssueDateUtcDiff' negative = {true}/>    

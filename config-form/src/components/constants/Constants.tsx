@@ -1,5 +1,5 @@
 export const radioProperties = ['canSell', "canCancel", "canReturn", "canDuplicate", "canAdjustPremium", "hasInstallments","hasRenewals"]
-export const radioQuestions = ['Can be sold', "Can be canceled", "Can be returned", "Can be duplicated", "Can be adjusted to Premium", "It has installments","It has renewals"]
+export const radioQuestions = ['Available for sale', "Can the item be canceled", "Is it returnable", "Can it be duplicated", "Can be adjusted to Premium", "Does it have installments","Does it have renewals"]
 export const minMaxInputValues = [
     ['minBeneficiaryCount', 'maxBeneficiaryCount'], 
     ['minPolicyHolderCount', 'maxPolicyHolderCount'], 

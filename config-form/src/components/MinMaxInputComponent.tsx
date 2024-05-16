@@ -10,7 +10,7 @@ interface Props{
 export default function MinMaxInputComponent({label, values}:Props) {
   const minKey = values[0]
   const maxKey = values[1]
-  const {data} = useContext(DataContext)
+  const {data, setError} = useContext(DataContext)
   const [minValue, setMinValue] = useState(data[minKey])
   const [maxValue, setMaxValue] = useState(data[maxKey])
 
@@ -22,7 +22,19 @@ export default function MinMaxInputComponent({label, values}:Props) {
     else if (minmax=='max'){
       setMaxValue(e)
     }
+
+
   }
+  
+  useEffect(()=>{
+    if(minValue>maxValue){
+      setError(true)
+    }
+    else{
+      setError(false)
+    }
+  },[minValue, maxValue])
+  
   useKeyChange(minKey, minValue)
   useKeyChange(maxKey, maxValue)
 
@@ -31,12 +43,11 @@ export default function MinMaxInputComponent({label, values}:Props) {
       <div>
         <div className='duoNumberInputContainer'>
           <p>{label}</p>
-          <div>
+          <div className='min-max-inputs'>
             <InputNumber min={0} max={10} value={minValue} onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleChange(e, 'min')}/>
             <InputNumber min={minValue} max={10} value={maxValue} onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleChange(e, 'max')}/>
           </div>
         </div>
-          <div>{minValue > maxValue && <div className='errorBox'>Minimum cannot be bigger than maximum.</div>}</div>
       </div>
     </>
   )

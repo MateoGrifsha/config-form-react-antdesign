@@ -1,16 +1,20 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import MinMaxInputComponent from './MinMaxInputComponent'
 import { minMaxInputValues as inputValues } from './constants/Constants'
+import { DataContext } from '../App'
 export default function MinMaxInputGroup() {
+  const {error} = useContext(DataContext)
+
   return (
     <>
-      <h2 className='section-label'>Group 3: </h2>
-      <div className="minMaxGroup">
+      <div className='error-label-row'>
+        <h2 className='section-label'>Number of users: </h2>
+        {error && <div className='error-box'>Minimum cannot be bigger than maximum!</div>}
+      </div>
+      <div className="minMaxGroup duoNumberInputRow">
         <div className='minimumMaximumLabel'>
-          <div>
-            <p>Minimum</p>
-            <p>Maximum</p>
-          </div>
+            <p>min</p>
+            <p>max</p>
         </div>
         <div>
           <MinMaxInputComponent label="Beneficiary: " values={inputValues[0]}/>

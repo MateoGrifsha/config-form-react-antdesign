@@ -11,7 +11,7 @@ import { DataContext } from '../App';
 export const ButtonContext = createContext<boolean>(false);
 export default function FormComponent() {
   const [save, setSave] = useState<boolean>(false)
-  const {data, setData} = useContext(DataContext)!
+  const {data, error} = useContext(DataContext)!
   const handleButtonClick = () =>{
     setSave(true)
     setTimeout(()=>{setSave(false)},1000); 
@@ -25,8 +25,7 @@ export default function FormComponent() {
       <Form
         className='form-container'
       >
-
-        
+      
        <div className='section1-wrapper'>
           <div>       
             <Form.Item>
@@ -40,12 +39,12 @@ export default function FormComponent() {
           </div>
        </div>
 
-      <div className="section2-wrapper">
-        <Form.Item>
-            <MinMaxInputGroup/>
+       <div className="section2-wrapper">
+      <Form.Item>
+            <TagInputGroup />
         </Form.Item>
         <Form.Item>
-            <TagInputGroup />
+            <MinMaxInputGroup/>
         </Form.Item>
       </div>
 
@@ -54,7 +53,7 @@ export default function FormComponent() {
         </Form.Item>
         
         <Form.Item>
-          <Button type="primary" htmlType="submit" onClick={handleButtonClick} loading={save}>
+          <Button className='submit-button' type="primary" htmlType="submit" onClick={handleButtonClick} loading={save} disabled={error}> 
             Submit
           </Button>
         </Form.Item>
