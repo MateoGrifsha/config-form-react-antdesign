@@ -25,22 +25,30 @@ export default function FormComponent() {
       <Form
         className='form-container'
       >
-        <Form.Item>
-            <TrueFalseGroup/>
-        </Form.Item>
-        <hr />
-        <Form.Item>
-            <NumericInputGroup/>
-        </Form.Item>
-        <hr />
+
+        
+       <div className='section1-wrapper'>
+          <div>       
+            <Form.Item>
+              <TrueFalseGroup/>
+            </Form.Item>
+          </div>
+          <div>
+            <Form.Item>
+                <NumericInputGroup/>
+            </Form.Item>
+          </div>
+       </div>
+
+      <div className="section2-wrapper">
         <Form.Item>
             <MinMaxInputGroup/>
         </Form.Item>
-        <hr />
         <Form.Item>
             <TagInputGroup />
         </Form.Item>
-        <hr />
+      </div>
+
         <Form.Item>
             <CollapseEmailComponent />
         </Form.Item>

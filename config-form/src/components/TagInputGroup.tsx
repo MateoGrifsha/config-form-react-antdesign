@@ -4,12 +4,13 @@ import { currencies, paymentType, distributionChannels, waitingPeriodTypeAllowed
 export default function TagInputGroup() {
 
   return (
-    <div>
+    <>
+        <h2 className='section-label'>Group 4: </h2>
         <TagInputComponent inputs={currencies} label='Currency: ' value='currencyTypesAllowed'/><br />
         <TagInputComponent inputs={paymentType} label='Payment Type: ' value='paymentTypesAllowed'/><br />
         <TagInputComponent inputs={distributionChannels} label='Distribution Channels: ' value='distributionChannelTypesAllowed'/><br />
         <TagInputComponent inputs={waitingPeriodTypeAllowed} label='Waiting Period: ' value='waitingPeriodTypeAllowed'/><br />
         <TagInputComponent inputs={riskAddressTypesAllowed} label='Risk Address: ' value='riskAddressTypesAllowed'/>
-    </div>
+    </>
   )
 }

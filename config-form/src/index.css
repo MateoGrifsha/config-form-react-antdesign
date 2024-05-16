@@ -3,31 +3,74 @@
 
 body{
     font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    background-color: ghostwhite;
+}
+p{
+    margin: 0;
+}
+h2{
+    margin-bottom: 30px;
 }
 .form-container{
-    /* display: flex; */
-    width: 60%;
+    max-width: 1400px;
+    margin: auto;
+}
+.form-container > div{
+    padding: 20px;
+    margin-block: 10px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px rgb(218, 218, 218);
+}
+.form-container > div:last-child{
+    background-color: transparent;
+    margin: 0;
+    padding: none;
+}
+
+.section-label{
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.25rem;
+}
+
+.section1-wrapper{
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+.section1-wrapper > div:first-child{
+    border-right: thin solid rgb(231, 231, 231);
+    padding-right: 25px;
+    width: 65%;
 }
 .trueFalseGroup div{
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 10px;
 }
-.trueFalseGroup p{
-   margin-block: auto;
-   margin-right: 100px;
+.subgroup-label{
+    font-weight: 500;
+    font-size: 1.1rem;
+    font-style: italic;
 }
 .dateInputContainerRow{
     display: grid;
     gap: 15px;
     grid-template-columns: repeat(12, 1fr);
+    padding-left: 15px;
 }
-.dateInputContainerRow div{
-    grid-column: span 3;
+
+.dateInputContainer > .subgroup:first-child{
+    margin-bottom: 20px;
+}
+
+.dateInputContainerRow > div{
+    grid-column: span 6;
 }
 .dateInputContainerRow div:first-child{
-    grid-column: 1/6;
+    grid-column: span 12;
 }
 .dateInputContainerRow div:first-child input{
     text-align: center;
@@ -35,23 +78,41 @@ body{
 .dateInputContainerRow .ant-input-number{
     width: 100% !important;
 }
+
+.minimumMaximumLabel{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.minimumMaximumLabel div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 180px;
+    color: rgba(0, 0, 0 , 0.3);
+}
+.minimumMaximumLabel p{
+    margin: 0;
+}
 .duoNumberInputContainer{
-    width: 50%;
     display: flex;
     justify-content: space-between;
+    /* border: thin solid orange; */
 }
 .duoNumberInputContainer p {
     margin-block: auto;
+    min-width: 200px;
+    width: max-content;
 }
-.duoNumberInputContainer div{
-    
-}
-
 .errorBox{
-    border: 2px solid rgb(255, 83, 83);
+    border: 2px solid rgb(255, 132, 132);
     background-color: rgba(255, 0, 0, 0.2);
     padding: 8px;
     border-radius: 4px;
-    width: 30%;
-    font-weight: 500;
+    font-weight: 600;
+    color: rgb(63, 63, 63);
+    position: absolute;
+}
+input{
+    background-color: yellow;
 }

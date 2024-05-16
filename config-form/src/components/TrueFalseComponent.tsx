@@ -28,10 +28,10 @@ useKeyChange(value, checked, dataTypeCheck)
   return (
     <>
         <div>
-          <p>{label}: </p>
+          <span>{label}: </span>
           <Radio.Group optionType="button" buttonStyle="solid" defaultValue={checked===true?true:false}>
-              <Radio.Button value={true} onClick={()=>handleClick('true')}>True</Radio.Button>
-              <Radio.Button value={false} onClick={()=>handleClick('false')}>False</Radio.Button>
+              <Radio.Button value={true} onClick={()=>handleClick('true')}>YES</Radio.Button>
+              <Radio.Button value={false} onClick={()=>handleClick('false')}>NO</Radio.Button>
           </Radio.Group>
         </div>
     </>

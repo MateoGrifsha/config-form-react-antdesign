@@ -27,13 +27,17 @@ export default function MinMaxInputComponent({label, values}:Props) {
   useKeyChange(maxKey, maxValue)
 
   return (
-    <div className='duoNumberInputContainer'>
-      <p>{label}</p>
+    <>
       <div>
-        <InputNumber min={0} max={10} value={minValue} onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleChange(e, 'min')}/>
-        <InputNumber min={minValue} max={10} value={maxValue} onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleChange(e, 'max')}/>
+        <div className='duoNumberInputContainer'>
+          <p>{label}</p>
+          <div>
+            <InputNumber min={0} max={10} value={minValue} onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleChange(e, 'min')}/>
+            <InputNumber min={minValue} max={10} value={maxValue} onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleChange(e, 'max')}/>
+          </div>
+        </div>
+          <div>{minValue > maxValue && <div className='errorBox'>Minimum cannot be bigger than maximum.</div>}</div>
       </div>
-      {minValue > maxValue && <div className='errorBox'>Minimum cannot be bigger than maximum.</div>}
-    </div>
+    </>
   )
 }
