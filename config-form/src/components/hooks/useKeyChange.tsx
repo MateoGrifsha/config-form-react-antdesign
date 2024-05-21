@@ -28,7 +28,7 @@ const useKeyChange = (key:string, value:string | number | null | undefined | Tag
             }
           }))
         }
-      },[saveButton])
+      }, [saveButton])
       return data
 }
 export default useKeyChange;

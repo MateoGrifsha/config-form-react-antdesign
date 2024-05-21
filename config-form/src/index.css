@@ -22,6 +22,7 @@ h2{
     background-color: white;
     border-radius: 20px;
     box-shadow: 3px 3px 5px rgb(218, 218, 218);
+
 }
 .form-container > div:last-child{
     background-color: transparent;
@@ -32,13 +33,10 @@ h2{
     box-shadow: none;
 }
 .submit-button {
-    width: 8vw;
-    height: 2vw;
+    width: 100%;
+    height: 100%;
     font-size: 1.1rem;
     border-radius: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .section-label{
     font-weight: 700;
@@ -56,6 +54,7 @@ h2{
     border-right: thin solid rgb(231, 231, 231);
     padding-right: 25px;
     width: 50%;
+    
 }
 .trueFalseGroup div{
     display: flex;
@@ -126,9 +125,6 @@ h2{
 .tag-row{
     display: flex;
 }
-.tag-row p{
-    width: 30%;
-}
 .tag-row span{
     padding: 4px 15px;
     border: thin solid rgb(242, 242, 242);
@@ -178,9 +174,10 @@ h2{
     background-color: white;
 }
 .email-section{
-    width: 64.5%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+
 }
 .email-section > div:last-child{
     border-left: thin solid rgb(231, 231, 231);
@@ -190,10 +187,87 @@ h2{
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    width: 630px;
 }
 .subgroup > div{
     padding-left: 15px;
 }
+.email-tag-container{
+    width: 50%;
+}
 .email-tag-container input{
-    width:20%;
+    width:30%;
+}
+
+@media screen and (max-width: 480px) {
+    .form-container > div{
+        padding: 5px 10px;
+    }
+    .section1-wrapper, .section2-wrapper{
+        flex-direction: column;
+        padding: 0 0;
+    }
+    .section2-wrapper{
+        gap: 0px;
+    }
+    .section1-wrapper > div:first-child, .section2-wrapper > div:first-child{
+        width: 90%;
+        border-right: none;
+        border-bottom: thin solid rgb(231, 231, 231);
+        padding: 0;
+    }
+    .dateInputContainer{
+        width: 90%;
+    }
+    .subgroup > div{
+        padding: 0;
+    }
+    .todays-date{
+        left: 0;
+        top: 25px;
+    }
+    .tag-row{
+        display: grid;
+        grid-template-columns: auto;
+        gap: 5px;
+    }
+    .tag-input-group{
+        margin-bottom: 30px;
+    }
+    .minMaxGroup{
+        width: 100%;
+    }
+    .error-label-row{
+        margin-bottom: 0px;
+        flex-direction: column;
+        width: 100%;    
+        align-items: flex-start;
+    }
+    .minimumMaximumLabel{
+        display: none;
+    }
+    .duoNumberInputContainer{
+        display: grid;
+        grid-template-columns: auto;
+    }
+    .duoNumberInputContainer p {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .min-max-inputs{
+        justify-content: flex-start;
+    }
+    .email-section{
+        flex-direction: column;
+    }
+    .email-radio-container > div{
+        width: 100%;
+    }
+    .email-section > div:last-child{
+        padding-left: 0;
+        border: none;
+    }
+    .email-tag-container{
+        width: 100%;
+    }
 }

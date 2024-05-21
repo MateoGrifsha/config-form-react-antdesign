@@ -16,6 +16,7 @@ export default function FormComponent() {
     setSave(true)
     setTimeout(()=>{setSave(false)},1000); 
   }
+
   useEffect(()=>{
     console.log(data)
   },[data])

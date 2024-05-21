@@ -133,7 +133,7 @@ export default function EmailConfigTag({value}:Props) {
                 )}
                 {!inputVisible && (
                     <Tag className="site-tag-plus" onClick={showInput}>
-                    <PlusOutlined /> New Tag
+                    <PlusOutlined /> {`New ${value}`}
                     </Tag>
                 )}
             
