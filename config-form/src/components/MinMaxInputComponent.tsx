@@ -14,6 +14,7 @@ export default function MinMaxInputComponent({label, values}:Props) {
   const {changeData} = useUpdateObject()
   const [minValue, setMinValue] = useState(data[minKey])
   const [maxValue, setMaxValue] = useState(data[maxKey])
+  const [localError, setLocalError] = useState(false)
 
   //controlled input bcs it updates 'min' attribute on the maximum input field
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>, minmax:string)=>{
@@ -24,14 +25,14 @@ export default function MinMaxInputComponent({label, values}:Props) {
       setMaxValue(e)
     }
 
-
-  }
-  
+  }  
   useEffect(()=>{
     if(minValue>maxValue){
       setError(true)
+      setLocalError(true)
     }
     else{
+      setLocalError(false)
       setError(false)
     }
   },[minValue, maxValue])
@@ -45,7 +46,7 @@ export default function MinMaxInputComponent({label, values}:Props) {
         <div className='duoNumberInputContainer'>
           <p>{label}</p>
           <div className='min-max-inputs'>
-            <InputNumber min={0} max={10} value={minValue} onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleChange(e, 'min')}/>
+            <InputNumber min={0} max={10} value={localError?0:minValue} onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleChange(e, 'min')}/>
             <InputNumber min={minValue} max={10} value={maxValue} onChange={(e:React.ChangeEvent<HTMLInputElement>) => handleChange(e, 'max')}/>
           </div>
         </div>

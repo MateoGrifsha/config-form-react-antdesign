@@ -28,9 +28,7 @@ export default function FormComponent() {
   
   return (
   <ButtonContext.Provider value={{save, setSave}}>
-      <Form
-        className='form-container'
-      >
+      <Form className='form-container'>
       
        <div className='section1-wrapper'>
           <div>       

@@ -30,8 +30,8 @@ export default function TrueFalseComponent({label,value}:Props) {
         <div>
           <span>{label}: </span>
           <Radio.Group optionType="button" buttonStyle="solid" defaultValue={checked===true?true:false}>
-              <Radio.Button value={true} onClick={()=>handleClick('true')}>YES</Radio.Button>
-              <Radio.Button value={false} onClick={()=>handleClick('false')} >NO</Radio.Button>
+              <Radio.Button value={true} onClick={()=>handleClick('true')} className='true-button'>YES</Radio.Button>
+              <Radio.Button value={false} onClick={()=>handleClick('false')} className='false-button'>NO</Radio.Button>
           </Radio.Group>
         </div>
     </>

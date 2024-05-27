@@ -12,7 +12,7 @@ export default function NumericInputGroup() {
           <div className='subgroup'>
             <h3 className="subgroup-label">Starting dates:</h3>
             <div className='dateInputContainerRow'>
-                <NumericInputComponent label ='Default start date'value='defaultStartDateUtcDiff' negative = {false}/>    
+                <NumericInputComponent label ='Default start date'value='defaultStartDateUtcDiff' negative = {true}/>    
                 <NumericInputComponent label ='Minimum start date'value='minStartDateUtcDiff' negative = {true}/>    
                 <NumericInputComponent label ='Maximum start date'value='maxStartDateUtcDiff' negative = {false}/>  
             </div>
@@ -20,7 +20,7 @@ export default function NumericInputGroup() {
          <div className='subgroup'>
           <h3 className="subgroup-label">Issuing dates:</h3>
             <div className='dateInputContainerRow'>
-                <NumericInputComponent label ='Default issue date'value='defaultIssueDateUtcDiff' negative = {false}/>    
+                <NumericInputComponent label ='Default issue date'value='defaultIssueDateUtcDiff' negative = {true}/>    
                 <NumericInputComponent label ='Minimum issue date'value='minIssueDateUtcDiff' negative = {true}/>    
                 <NumericInputComponent label ='Maximum issue date'value='maxIssueDateUtcDiff' negative = {false}/>    
             </div>   
