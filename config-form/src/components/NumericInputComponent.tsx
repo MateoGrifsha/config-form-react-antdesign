@@ -1,7 +1,7 @@
 import React, { useState, useContext, useRef, useEffect } from 'react'
 import { InputNumber } from 'antd';
 import { DataContext } from '../App';
-import useKeyChange from './hooks/useKeyChange';
+import useUpdateObject from './hooks/useUpdateObject';
 
 
 interface Props{
@@ -12,10 +12,12 @@ interface Props{
 
 export default function NumericInputComponent({label, negative, value}:Props) {
   const {data} = useContext(DataContext)
+  const {changeData} = useUpdateObject()
+
   const dataValue = data[value]
   const inputRef = useRef<HTMLInputElement | any>(dataValue)
 
-  useKeyChange(value, parseInt(inputRef.current!.value))
+  changeData(value, parseInt(inputRef.current!.value))
   
   return (
     <>

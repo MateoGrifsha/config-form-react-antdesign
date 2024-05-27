@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { InputNumber } from 'antd';
 import { DataContext } from '../App';
-import useKeyChange from './hooks/useKeyChange';
+import useUpdateObject from './hooks/useUpdateObject';
 
 interface Props{
   label:string,
@@ -11,6 +11,7 @@ export default function MinMaxInputComponent({label, values}:Props) {
   const minKey = values[0]
   const maxKey = values[1]
   const {data, error, setError} = useContext(DataContext)
+  const {changeData} = useUpdateObject()
   const [minValue, setMinValue] = useState(data[minKey])
   const [maxValue, setMaxValue] = useState(data[maxKey])
 
@@ -35,8 +36,8 @@ export default function MinMaxInputComponent({label, values}:Props) {
     }
   },[minValue, maxValue])
   
-  useKeyChange(minKey, minValue)
-  useKeyChange(maxKey, maxValue)
+  changeData(minKey, minValue)
+  changeData(maxKey, maxValue)
 
   return (
     <>

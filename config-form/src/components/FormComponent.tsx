@@ -8,13 +8,18 @@ import CollapseEmailComponent from './CollapseEmailComponent';
 import { DataContext } from '../App';
 
 
-export const ButtonContext = createContext<boolean>(false);
+export const ButtonContext = createContext<any>(false);
 export default function FormComponent() {
   const [save, setSave] = useState<boolean>(false)
-  const {data, error} = useContext(DataContext)!
-  const handleButtonClick = () =>{
-    setSave(true)
-    setTimeout(()=>{setSave(false)},1000); 
+  const [loading, setLoading] = useState<boolean>(false)
+  const {data, error} = useContext(DataContext)! 
+
+  const handleButtonClick = (e:any) =>{
+    e.preventDefault();
+    setSave(true);
+
+    setLoading(true)
+    setTimeout(()=>{setLoading(false)}, 1000); //disable the submit button for 1 second to prevent spamming
   }
 
   useEffect(()=>{
@@ -22,7 +27,7 @@ export default function FormComponent() {
   },[data])
   
   return (
-  <ButtonContext.Provider value={save}>
+  <ButtonContext.Provider value={{save, setSave}}>
       <Form
         className='form-container'
       >
@@ -54,7 +59,7 @@ export default function FormComponent() {
         </Form.Item>
         
         <Form.Item>
-          <Button className='submit-button' type="primary" htmlType="submit" onClick={handleButtonClick} loading={save} disabled={error}> 
+          <Button className='submit-button' type="primary" htmlType="submit" onClick={handleButtonClick} loading={loading} disabled={error}> 
             Submit
           </Button>
         </Form.Item>

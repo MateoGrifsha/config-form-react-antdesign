@@ -130,6 +130,9 @@ h2{
     border: thin solid rgb(242, 242, 242);
     border-radius: 4px;
 }
+.tag-row p{
+    width: 200px;
+}
 .duoNumberInputContainer{
     display: flex;
     justify-content: space-between;
@@ -198,11 +201,38 @@ h2{
 .email-tag-container input{
     width:30%;
 }
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 960px){
     .form-container > div{
         padding: 5px 10px;
     }
+    .dateInputContainer{
+        width: 100%;
+    }
+    .todays-date{
+        left: 0;
+        top: 25px;
+    }
+    .section2-wrapper > div:first-child{
+        width: 70%;
+    }
+    .tag-row{
+        display: grid;
+        grid-template-columns: auto;
+        gap: 5px;
+    }
+    .minMaxGroup{
+        width: 100%;
+    }
+    .minimumMaximumLabel{
+        width: 100%;
+        gap: 60px;
+        padding-right: 30px;
+    }
+    .email-radio-container > div{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 480px) {
     .section1-wrapper, .section2-wrapper{
         flex-direction: column;
         padding: 0 0;
@@ -221,10 +251,6 @@ h2{
     }
     .subgroup > div{
         padding: 0;
-    }
-    .todays-date{
-        left: 0;
-        top: 25px;
     }
     .tag-row{
         display: grid;
@@ -259,9 +285,6 @@ h2{
     }
     .email-section{
         flex-direction: column;
-    }
-    .email-radio-container > div{
-        width: 100%;
     }
     .email-section > div:last-child{
         padding-left: 0;

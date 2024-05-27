@@ -3,16 +3,14 @@ import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
 import { Input, Tag, Tooltip } from 'antd';
 import { DataContext } from '../App';
-import {ButtonContext} from '../components/FormComponent'
-import useKeyChange from './hooks/useKeyChange';
+import useUpdateObject from './hooks/useUpdateObject';
 
 interface Props{
   value:string
 }
 export default function EmailConfigTag({value}:Props) {
     const {data} = useContext(DataContext)
-
-    const saveButton:boolean = useContext(ButtonContext)
+    const {changeData} = useUpdateObject()
     const [tags, setTags] = useState<string[]>(data['emailConfigurations'][0][value]);
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
@@ -21,11 +19,6 @@ export default function EmailConfigTag({value}:Props) {
     const inputRef = useRef<InputRef>(null);
     const editInputRef = useRef<InputRef>(null);
 
-    useEffect(()=>{
-      if(saveButton){
-        data['emailConfigurations'][0][value] = tags
-      }
-    },[saveButton])
 
     useEffect(() => {
         if (inputVisible) {
@@ -70,7 +63,7 @@ export default function EmailConfigTag({value}:Props) {
         setInputValue('');
       };
     
-      useKeyChange(value, tags, 'emailConfigurations')
+       changeData(value, tags, 'emailConfigurations')
   return (
     <>
         {tags.map((tag, index) => {

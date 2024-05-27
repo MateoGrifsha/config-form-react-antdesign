@@ -132,7 +132,6 @@ export const DataContext = createContext <DataObj | undefined | null | any>(null
     <div>
       <DataContext.Provider value={{data, setData, error, setError}}>
         <FormComponent />
-        
       </DataContext.Provider>
     </div>
   );
