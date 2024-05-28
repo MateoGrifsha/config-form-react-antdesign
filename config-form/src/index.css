@@ -64,24 +64,23 @@ h2{
 .true-button.ant-radio-button-wrapper-checked{
     background-color: #00743f !important;
     border: thin solid #1d3e11 !important;
-    color: ghostwhite !important;
-    outline: none !important;
 }
 .false-button.ant-radio-button-wrapper-checked{
     background-color: #BB2222 !important;
     border: thin solid #5c0000 !important;
-    color: ghostwhite !important;
-    outline: none !important;
 }
-.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)::before{
-    background-color: #BB2222 !important;
-}
+
 .true-button.ant-radio-button-wrapper:hover{
     color: #54da23 !important;
 }
 .false-button.ant-radio-button-wrapper:hover{
     color: #BB2222 !important;
 }
+.false-button.ant-radio-button-wrapper-checked:hover, 
+.true-button.ant-radio-button-wrapper-checked:hover{
+    color: white !important;
+}
+
 .subgroup-label{
     font-weight: 500;
     font-size: 1.1rem;
@@ -224,6 +223,7 @@ h2{
 }
 .tag-input{
     border: thin solid rgb(168, 168, 168) !important;
+    height: 22px !important;
 }
 .ant-input:focus,
 .ant-input-focused{

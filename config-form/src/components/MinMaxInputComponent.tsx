@@ -18,27 +18,32 @@ export default function MinMaxInputComponent({label, values}:Props) {
 
   //controlled input bcs it updates 'min' attribute on the maximum input field
   const handleChange = (e:React.ChangeEvent<HTMLInputElement>, minmax:string)=>{
-    if(minmax=='min'){
-      setMinValue(e)
+    if (minmax === 'min') {
+      setMinValue(e);
+      if (e > maxValue) {
+        setLocalError(true);
+        setError(true);
+      } 
+      else {
+        setLocalError(false);
+        setError(false);
+      }
+    } 
+    else if (minmax === 'max') {
+      setMaxValue(e);
+      if (minValue > e) {
+        setLocalError(true);
+        setError(true);
+      } 
+      else {
+        setLocalError(false);
+        setError(false);
+      }
     }
-    else if (minmax=='max'){
-      setMaxValue(e)
-    }
-
   }  
-  useEffect(()=>{
-    if(minValue>maxValue){
-      setError(true)
-      setLocalError(true)
-    }
-    else{
-      setLocalError(false)
-      setError(false)
-    }
-  },[minValue, maxValue])
+  changeData(minKey, minValue);
+  changeData(maxKey, maxValue);
   
-  changeData(minKey, minValue)
-  changeData(maxKey, maxValue)
 
   return (
     <>
