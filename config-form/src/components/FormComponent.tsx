@@ -6,6 +6,7 @@ import MinMaxInputGroup from './MinMaxInputGroup';
 import TagInputGroup from './TagInputGroup';
 import CollapseEmailComponent from './CollapseEmailComponent';
 import { DataContext } from '../App';
+import Table from './table/Table';
 
 
 export const ButtonContext = createContext<any>(false);
@@ -62,6 +63,7 @@ export default function FormComponent() {
           </Button>
         </Form.Item>
       </Form>
+      <Table />
     </ButtonContext.Provider>
   )
 }

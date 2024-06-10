@@ -13,7 +13,7 @@ h2{
     margin-bottom: 30px;
 }
 .form-container{
-    max-width: 1400px;
+    max-width: 1400px;  
     margin: auto;
 }
 .form-container > div{
@@ -229,6 +229,44 @@ h2{
 .ant-input-focused{
     box-shadow: none;
 }
+.table-container{
+    width: min-content;
+}
+.table-header-container{
+    display: grid;
+    grid-template-columns: repeat(33, 1fr);
+    border: thin solid white;
+    background: #1980FF;
+    color: white;
+    width: max-content;
+}
+.table-header-item{
+    border-right: thin solid white;
+    padding: 5px 15px;
+}
+.table-body-container > div{
+    /* display: grid;
+    grid-template-columns: repeat(33, 1fr);
+    grid-auto-rows: minmax(auto, max-content);
+    width: 100%; */
+    display: flex;
+    align-items: stretch; 
+}
+.table-body-item{
+    border: thin solid black;
+    border-left: none;
+    border-top: none;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap; 
+    padding-left: 15px;
+}
+.table-body-item span{
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+
 @media screen and (max-width: 960px){
     .form-container > div{
         padding: 5px 10px;

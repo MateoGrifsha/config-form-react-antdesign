@@ -1,4 +1,4 @@
-import React, {createContext, useState } from 'react'
+import React, {createContext, useEffect, useState } from 'react'
 import FormComponent from './components/FormComponent';
 
 export interface Types{
@@ -126,6 +126,7 @@ export const DataContext = createContext <DataObj | undefined | null | any>(null
   function App() {
     const [data, setData] = useState<DataObj>(dataArray[0])
     const [error, setError] = useState<boolean>(false)
+
 
   return (
     
