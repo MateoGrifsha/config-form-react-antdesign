@@ -21,11 +21,15 @@ export default function Table() {
   return (
     <div className='table-container'>
         <TableHeader />
-        {prevStates.map((state:any, stateIndex:number) =>( //prints all rows
-          <div className='table-body-container' key={stateIndex}>
-            <TableBody rowData={state} emailConfigKeys={additionalKeys} allKeys={allKeys} />
+        <div className='table-body-container'>
+          <div className="scrollable">
+            {prevStates.map((state:any, stateIndex:number) =>( //prints all rows
+              <div className='table-body-row' key={stateIndex}>
+                <TableBody rowData={state} emailConfigKeys={additionalKeys} allKeys={allKeys} />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
     </div>
   )
 }

@@ -231,8 +231,10 @@ h2{
 }
 .table-container{
     display: flex;
-    margin-left: 15px;
-    width: max-content;
+    align-items: flex-start;
+    width: 1400px;
+    max-width: 1400px;
+    margin: auto;
 }
 .table-header-container{
     display: grid;
@@ -247,27 +249,23 @@ h2{
     padding: 5px 15px;
 }
 .table-body-container{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr); /*repeat(33,1fr)*/; 
+    display: flex;
+    flex: 1;
+    overflow-x: auto;
 }
-.table-body-item{
+.scrollable{
+    display: flex;
+    min-width: 1400px;
+}
+.table-row-item{
     border-bottom: thin solid black;
     border-right: thin solid black;
     min-height: 33px;
-    /* border-bottom: none; */
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap; 
     padding: 5px 15px;
 }
-.table-body-item:first-child{
+.table-row-item:first-child{
     border-top: thin solid black;
 }
-.table-body-item span{
-    word-break: break-word;
-    overflow-wrap: break-word;
-}
-
 @media screen and (max-width: 960px){
     .form-container > div{
         padding: 5px 10px;

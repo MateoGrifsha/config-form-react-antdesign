@@ -49,7 +49,7 @@ export default function TableBody({rowData, allKeys, emailConfigKeys}:Props) {
   return (
      <>
         {allKeys.map(x=>( //prints each data in its corresponding cell
-            <div className='table-body-item' key={x}>
+            <div className='table-row-item' key={x}>
                 {renderValue(x, rowData[x], rowData)}
             </div>
         ))}
