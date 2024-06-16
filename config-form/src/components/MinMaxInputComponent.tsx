@@ -11,7 +11,7 @@ export default function MinMaxInputComponent({label, values}:Props) {
   const minKey = values[0]
   const maxKey = values[1]
   const {data, error, setError} = useContext(DataContext)
-  const {changeData} = useUpdateObject()
+  // const {changeData} = useUpdateObject()
   const [minValue, setMinValue] = useState(data[minKey])
   const [maxValue, setMaxValue] = useState(data[maxKey])
   const [localError, setLocalError] = useState(false)
@@ -41,8 +41,8 @@ export default function MinMaxInputComponent({label, values}:Props) {
       }
     }
   }  
-  changeData(minKey, minValue);
-  changeData(maxKey, maxValue);
+  useUpdateObject(minKey, minValue);
+  useUpdateObject(maxKey, maxValue);
   
 
   return (

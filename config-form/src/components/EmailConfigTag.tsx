@@ -10,7 +10,7 @@ interface Props{
 }
 export default function EmailConfigTag({value}:Props) {
     const {data} = useContext(DataContext)
-    const {changeData} = useUpdateObject()
+    // const {changeData} = useUpdateObject()
     const [tags, setTags] = useState<string[]>(data['emailConfigurations'][0][value]);
     const [inputVisible, setInputVisible] = useState(false);
     const [inputValue, setInputValue] = useState('');
@@ -63,7 +63,7 @@ export default function EmailConfigTag({value}:Props) {
         setInputValue('');
       };
     
-       changeData(value, tags, 'emailConfigurations')
+      useUpdateObject(value, tags, 'emailConfigurations')
   return (
     <>
         {tags.map((tag, index) => {

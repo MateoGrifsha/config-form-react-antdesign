@@ -4,7 +4,7 @@ import { DataObj } from '../../App';
 import { TagArray } from '../TagInputComponent';
 import { ButtonContext } from '../FormComponent';
 
-const useUpdateObject = (key:string, value:string | boolean | number | null | undefined | TagArray[] | string [], subkey:undefined | string = undefined)=>{
+const useTest = (key:string, value:string | boolean | number | null | undefined | TagArray[] | string [], subkey:undefined | string = undefined)=>{
     const {setData} = useContext(DataContext)
     const {save, setSave} = useContext(ButtonContext)
     
@@ -35,4 +35,4 @@ const useUpdateObject = (key:string, value:string | boolean | number | null | un
     }, [save])
 }
 
-export default useUpdateObject;
+export default useTest;

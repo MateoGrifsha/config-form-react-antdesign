@@ -16,7 +16,7 @@ export interface TagArray{
 }
 export default function TagInputComponent({inputs, label, value}:Props) {
     const {data} = useContext(DataContext)
-    const {changeData} = useUpdateObject()
+    // const {changeData} = useUpdateObject()
     const initialTags:string[] =[]
     const valueKey = data[value]
     if(valueKey != null){
@@ -38,7 +38,7 @@ export default function TagInputComponent({inputs, label, value}:Props) {
       }));
       
 
-    changeData(value, tagArray);
+    useUpdateObject(value, tagArray);
     
   return (
     <div className='tag-row'>

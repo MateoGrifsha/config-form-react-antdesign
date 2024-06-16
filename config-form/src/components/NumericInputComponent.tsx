@@ -12,12 +12,12 @@ interface Props{
 
 export default function NumericInputComponent({label, negative, value}:Props) {
   const {data} = useContext(DataContext)
-  const {changeData} = useUpdateObject()
+  // const {changeData} = useUpdateObject()
 
   const dataValue = data[value]
   const inputRef = useRef<HTMLInputElement | any>(dataValue)
 
-  changeData(value, parseInt(inputRef.current!.value))
+  useUpdateObject(value, parseInt(inputRef.current!.value))
   
   return (
     <>

@@ -126,8 +126,6 @@ export const DataContext = createContext <DataObj | undefined | null | any>(null
   function App() {
     const [data, setData] = useState<DataObj>(dataArray[0])
     const [error, setError] = useState<boolean>(false)
-
-
   return (
     
     <div>

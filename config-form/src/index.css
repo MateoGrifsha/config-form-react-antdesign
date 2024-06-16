@@ -229,42 +229,10 @@ h2{
 .ant-input-focused{
     box-shadow: none;
 }
-.table-container{
-    display: flex;
-    align-items: flex-start;
+.ag-table{
     width: 1400px;
-    max-width: 1400px;
+    height: 500px;
     margin: auto;
-}
-.table-header-container{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr); /*repeat(33,1fr)*/
-    border-top-left-radius: 10px;
-    background: #1980FF;
-    color: white;
-    width: max-content;
-}
-.table-header-item{
-    border-bottom: thin solid white; /*border-right*/
-    padding: 5px 15px;
-}
-.table-body-container{
-    display: flex;
-    flex: 1;
-    overflow-x: auto;
-}
-.scrollable{
-    display: flex;
-    min-width: 1400px;
-}
-.table-row-item{
-    border-bottom: thin solid black;
-    border-right: thin solid black;
-    min-height: 33px;
-    padding: 5px 15px;
-}
-.table-row-item:first-child{
-    border-top: thin solid black;
 }
 @media screen and (max-width: 960px){
     .form-container > div{
